@@ -3,16 +3,18 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 export default function PokemonLine({ data }) {
   return (
-    <TouchableOpacity style={styles.container}>
-      <Image
-        style={styles.pokemonImage}
-        source={{
-          uri: data.image,
-        }}
-      />
-      <Text style={styles.pokemonNumber}> {data.number} </Text>
-      <Text style={styles.pokemonName}> {data.name} </Text>
-    </TouchableOpacity>
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.container}>
+        <Image
+          style={styles.pokemonImage}
+          source={{
+            uri: data.image,
+          }}
+        />
+        <Text style={styles.pokemonNumber}> {data.number} </Text>
+        <Text style={styles.pokemonName}> {data.name} </Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 

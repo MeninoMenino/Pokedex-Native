@@ -3,14 +3,13 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   TouchableOpacity,
   Modal,
 } from "react-native";
 
-export default function PokemonModal({}) {
+export default function PokemonModal() {
   return (
-    <Modal animationType="slide" transparent={true} visible={}>
+    <Modal animationType="slide" transparent={true} visible={false}>
       <View>
         <TouchableOpacity>
           <Text>Voltar</Text>

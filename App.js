@@ -66,6 +66,10 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.topBar}>
+        <Text>Top Bar</Text>
+      </View>
+
       <FlatList
         showsVerticalScrollIndicator={false}
         data={pokemon}
@@ -82,7 +86,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f0f0f0",
-    marginTop: 90,
     justifyContent: "center",
+  },
+  topBar: {
+    flex: 1,
+    backgroundColor: "#fc4b30",
+    paddingVertical: 50,
+    marginBottom: 15,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
