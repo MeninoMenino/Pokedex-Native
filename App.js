@@ -1,11 +1,22 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, View, SafeAreaView } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Picker,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+
+import { Feather } from "@expo/vector-icons";
 
 import PokemonLine from "./src/components/PokemonLine";
 import PokemonModal from "./src/components/PokemonModal";
 
 export default function App() {
+  const [searchOption, setSearchOption] = useState("Name");
   const [modalVisible, setModalVisible] = useState(false);
   const [pokemon, setPokemon] = useState([
     {
@@ -67,7 +78,18 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topBar}>
-        <Text>Top Bar</Text>
+        <Picker
+          selectedValue={searchOption}
+          style={styles.searchOptionPicker}
+          onValueChange={(itemValue, itemIndex) => setSearchOption(itemValue)}
+        >
+         <Picker.Item label="Nome" value="Name"/>
+         <Picker.Item label="Número" value="Number"/>
+        </Picker>
+        <TextInput style={styles.searchInput} />
+        <TouchableOpacity style={styles.searchButton}>
+          <Feather name="search" size={30} color="black" />
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -91,9 +113,31 @@ const styles = StyleSheet.create({
   topBar: {
     flex: 1,
     backgroundColor: "#fc4b30",
-    paddingVertical: 50,
+    paddingVertical: 60,
     marginBottom: 15,
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
+  },
+  searchOptionPicker: {
+    width: 130,
+    height: 40,
+  },
+  searchInput: {
+    width: 180,
+    height: 40,
+    backgroundColor: "#FFF",
+    fontSize: 15,
+    padding: 9,
+    borderRadius: 5,
+  },
+  searchButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: "#fefefe",
+    marginLeft: 4,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
   },
 });
