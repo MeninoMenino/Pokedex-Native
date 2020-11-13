@@ -21,15 +21,15 @@ export default function PokemonLine({ data }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
-    padding: 20,
+    padding: 15,
     marginVertical: 3,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
   },
   pokemonImage: {
-    height: 100,
-    width: 100,
+    height: 70,
+    width: 70,
     marginLeft: 10,
     marginRight: 20,
   },
