@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   FlatList,
@@ -13,11 +12,9 @@ import {
 import { Feather } from "@expo/vector-icons";
 
 import PokemonLine from "./src/components/PokemonLine";
-import PokemonModal from "./src/components/PokemonModal";
 
 export default function App() {
   const [searchOption, setSearchOption] = useState("Name");
-  const [modalVisible, setModalVisible] = useState(false);
   const [pokemon, setPokemon] = useState([
     {
       number: 1,
@@ -83,8 +80,8 @@ export default function App() {
           style={styles.searchOptionPicker}
           onValueChange={(itemValue, itemIndex) => setSearchOption(itemValue)}
         >
-         <Picker.Item label="Nome" value="Name"/>
-         <Picker.Item label="Número" value="Number"/>
+          <Picker.Item label="Nome" value="Name" />
+          <Picker.Item label="Número" value="Number" />
         </Picker>
         <TextInput style={styles.searchInput} />
         <TouchableOpacity style={styles.searchButton}>
@@ -98,8 +95,6 @@ export default function App() {
         keyExtractor={(item) => String(item.number)}
         renderItem={({ item }) => <PokemonLine data={item} />}
       />
-
-      <PokemonModal />
     </SafeAreaView>
   );
 }
