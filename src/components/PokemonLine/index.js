@@ -41,14 +41,18 @@ export default function PokemonLine({ data }) {
           </TouchableOpacity>
         </View>
         <View style={styles.modalContainer}>
-          <Image
-            style={styles.modalPokemonImage}
-            source={{
-              uri: data.image,
-            }}
-          />
-          <Text style={styles.modalPokemonNumber}>#{data.number}</Text>
-          <Text style={styles.modalPokemonName}>{data.name}</Text>
+          <View style={modalPokemonImageContainer}>
+            <Image
+              style={styles.modalPokemonImage}
+              source={{
+                uri: data.image,
+              }}
+            />
+          </View>
+          <View style={modalPokemonDataContainer}>
+            <Text style={styles.modalPokemonNumber}>#{data.number}</Text>
+            <Text style={styles.modalPokemonName}>{data.name}</Text>
+          </View>
         </View>
       </Modal>
     </View>
@@ -91,6 +95,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  modalPokemonImageContainer: {},
+  modalPokemonDataContainer: {},
   modalPokemonImage: {
     height: 100,
     width: 100,
