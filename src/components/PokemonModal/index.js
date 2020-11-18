@@ -5,32 +5,15 @@ import {
   Image,
   TouchableOpacity,
   Modal,
+  StyleSheet,
 } from "react-native";
 
-import { Feather } from "@expo/vector-icons";
+export default function PokemonModal() {
 
-//Stylesheet
-import styles from "../../styles/PokemonLine";
-
-export default function PokemonLine({ data }) {
-  const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(true);
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => setModalVisible(true)}
-      >
-        <Image
-          style={styles.pokemonImage}
-          source={{
-            uri: data.image,
-          }}
-        />
-        <Text style={styles.pokemonNumber}> {data.number} </Text>
-        <Text style={styles.pokemonName}> {data.name} </Text>
-      </TouchableOpacity>
-
       <Modal
         animationType="slide"
         transparent={false}
@@ -60,3 +43,10 @@ export default function PokemonLine({ data }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+
+    },
+
+});

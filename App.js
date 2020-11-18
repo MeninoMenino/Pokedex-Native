@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   FlatList,
-  StyleSheet,
   Picker,
   View,
   SafeAreaView,
